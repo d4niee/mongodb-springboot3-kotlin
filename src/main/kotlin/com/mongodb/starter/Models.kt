@@ -10,28 +10,8 @@ import java.util.*
 data class Restaurant(
     @Id
     val id: ObjectId = ObjectId(),
-    val address: Address = Address(),
-    val borough: String = "",
-    val cuisine: String = "",
-    val grades: List<Grade> = emptyList(),
     val name: String = "",
     @Field("restaurant_id")
     val restaurantId: String = ""
-)
-
-
-data class Address(
-    val building: String = "",
-    val street: String = "",
-    val zipcode: String = "",
-    @Field("coord")
-    val coordinate: List<Double> = emptyList()
-)
-
-data class Grade(
-    val date: Date = Date(),
-    @Field("grade")
-    val rating: String = "",
-    val score: Int = 0
 )
 

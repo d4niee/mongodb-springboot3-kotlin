@@ -27,24 +27,4 @@ class Controller(@Autowired val repo: Repo) {
         val restaurant = Restaurant().copy(name = "sample", restaurantId = "33332")
         return repo.insert(restaurant)
     }
-
-
-    @PostMapping("/addByParams")
-    fun postRestaurantAsParams(@RequestBody restaurant: Restaurant): Restaurant {
-        return repo.insert(restaurant)
-    }
-
-    @DeleteMapping("/{id}")
-    fun deleteRestaurant(@PathVariable("id") id: String) {
-        repo.findByRestaurantId(id)?.let {
-            repo.delete(it)
-        }
-    }
-
-    @PatchMapping("/{id}")
-    fun updateRestaurant(@PathVariable("id") id: String): Restaurant? {
-        return repo.findByRestaurantId(restaurantId = id)?.let {
-            repo.save(it.copy(name = "Update"))
-        }
-    }
 }
